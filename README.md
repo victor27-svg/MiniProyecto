@@ -1,9 +1,9 @@
 # Mini Proyecto #2: Ecosistema Web de Algoritmos Modulares y Seguros
 
 # Integrantes
-Victor Rivas
-Eric De León
-Maryennis Deans
+* **Victor Rivas
+* **Eric De León
+* **Maryennis Deans
 
 ## 📋 Descripción del Proyecto
 Este proyecto consiste en el diseño y desarrollo de una plataforma web modular construida bajo la arquitectura **Modelo-Vista-Controlador (MVC)** en **PHP 8+**. El sistema centraliza la resolución de 9 problemas lógico-matemáticos y de gestión de datos, aplicando rigurosamente los estándares de codificación de la comunidad de PHP (**PSR-1 y PSR-4**), el principio de diseño **DRY (Don't Repeat Yourself)** y las directrices internacionales de seguridad estipuladas por **OWASP** para la mitigación de vulnerabilidades críticas en entornos web.
@@ -62,6 +62,7 @@ La plataforma resuelve y documenta de forma segura los siguientes enunciados:
 
 
 # ESTRUCTURA DE ARCHIVOS DEL PROYECTO.
+`
 ├── index.php                 # Enrutador principal y Front Controller
 ├── src/
 │   ├── Controllers/
@@ -76,5 +77,5 @@ La plataforma resuelve y documenta de forma segura los siguientes enunciados:
 │       ├── problema1.php     # Interfaces de usuario limpias (Vistas)
 │       ├── problema2.php
 │       └── [...]             # Vistas consecutivas hasta problema9.php
-└── README.md                 # Documentación técnica oficial del proyecto
+└── README.md                 # Documentación técnica oficial del proyecto `
   
