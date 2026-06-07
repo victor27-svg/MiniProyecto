@@ -1,6 +1,6 @@
 # Mini Proyecto #2: Ecosistema Web de Algoritmos Modulares y Seguros
 
-#Integrantes
+# Integrantes
 Victor Rivas
 Eric De León
 Maryennis Deans
@@ -61,9 +61,8 @@ La plataforma resuelve y documenta de forma segura los siguientes enunciados:
    git clone [https://github.com/tu-usuario/nombre-del-repositorio.git](https://github.com/tu-usuario/nombre-del-repositorio.git)
 
 
-#ESTRUCTURA DE ARCHIVOS DEL PROYECTO.
-
-   ├── index.php                 # Enrutador principal y Front Controller
+# ESTRUCTURA DE ARCHIVOS DEL PROYECTO.
+├── index.php                 # Enrutador principal y Front Controller
 ├── src/
 │   ├── Controllers/
 │   │   └── Problemas.php     # Controlador principal (Módulos 1 al 9)
@@ -78,3 +77,4 @@ La plataforma resuelve y documenta de forma segura los siguientes enunciados:
 │       ├── problema2.php
 │       └── [...]             # Vistas consecutivas hasta problema9.php
 └── README.md                 # Documentación técnica oficial del proyecto
+  
