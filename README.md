@@ -1,66 +1,73 @@
-# Mini Proyecto #2: Ecosistema Web de Algoritmos Modulares y Seguros
-
-# Integrantes
-* Victor Rivas
-* Eric De León
-* Maryennis Deans
-
-##  Descripción del Proyecto
-Este proyecto consiste en el diseño y desarrollo de una plataforma web modular construida bajo la arquitectura **Modelo-Vista-Controlador (MVC)** en **PHP 8+**. El sistema centraliza la resolución de 9 problemas lógico-matemáticos y de gestión de datos, aplicando rigurosamente los estándares de codificación de la comunidad de PHP (**PSR-1 y PSR-4**), el principio de diseño **DRY (Don't Repeat Yourself)** y las directrices internacionales de seguridad estipuladas por **OWASP** para la mitigación de vulnerabilidades críticas en entornos web.
+# Universidad Tecnológica de Panamá
+### Facultad de Ingeniería de Sistemas Computacionales
+### Licenciatura en Desarrollo de Software / Ingeniería de Software
 
 ---
 
-##  Arquitectura y Estándares de Diseño
+##  Información del Proyecto y Entrega
 
-El ecosistema de software se ha estructurado siguiendo un desacoplamiento estricto de responsabilidades:
-
-1. **Controladores (`Src\Controllers`)**: Gobernadores de la lógica de negocio. Interceptan las peticiones HTTP (`GET`/`POST`), invocan los mecanismos de defensa perimetral y delegan los resultados a las vistas.
-2. **Vistas (`views/`)**: Capa de presentación visual pura en HTML5/CSS3. Tienen estrictamente prohibido realizar cálculos algorítmicos, validaciones numéricas o tareas de sanitización.
-3. **Clases Utilitarias (`Src\Utils\Utilidades`)**: Caja de herramientas centralizada que expone métodos estáticos independientes mediante el operador de resolución de ámbito (`::`). Esto optimiza el consumo de memoria del servidor al evitar instanciaciones redundantes (`new`).
-4. **Autocarga Dinámica (Autoloader)**: Implementación nativa orientada al estándar **PSR-4** para el mapeo automático de espacios de nombres (`namespaces`), eliminando la dependencia de `include` o `require` masivos en el código fuente.
-
----
-
-## Implementación de Seguridad (Estándar OWASP)
-
-Para blindar la aplicación frente a amenazas en entornos de producción, se implementaron de forma transversal los siguientes mecanismos en la capa utilitaria:
-
-* **Mitigación de CSRF (Cross-Site Request Forgery - OWASP A01)**: Cada formulario dinámico genera un token criptográfico único y aleatorio del lado del servidor guardado en `$_SESSION`. Al procesar un `POST`, el método `Utilidades::validarCSRF()` intercepta y compara los hashes mediante `hash_equals()`. Si un tercero malicioso intenta falsificar la petición, el backend bloquea el proceso inmediatamente.
-* **Prevención de XSS (Cross-Site Scripting - OWASP XSS)**: Todas las entradas del usuario pasan por `Utilidades::limpiarDato()`, utilizando `htmlspecialchars()` para neutralizar cualquier intento de inyección de scripts o etiquetas HTML dañinas en los navegadores de los clientes.
-* **Validación de Tipos y Listas Blancas (OWASP A03 - Inyección)**: Se rechaza cualquier dato genérico. Se implementa `filter_var()` con banderas estrictas (`FILTER_VALIDATE_INT`, `FILTER_VALIDATE_FLOAT`), además de controles condicionales que aseguran que los rangos numéricos cumplan estrictamente con las reglas de negocio del problema (ej. bases restringidas exclusivamente del 1 al 9).
-* **Defensa contra la Manipulación de Parámetros (OWASP A08 - Integridad)**: En interfaces de renderizado dinámico (como el gestor de notas), el sistema valida límites estrictos en el servidor (`min_range` / `max_range`) para evitar ataques de denegación de servicio (DoS) por inyección masiva de inputs HTML desde el inspector del navegador.
+* **Curso:** [Desarrollo de Software VII]
+* **Fecha de Realización:** Junio de 2026
+* **Estudiantes:** * Victor Rivas
+  * Maryennis Deans
+  * Eric De León
 
 ---
 
-##  Directorio de Módulos (Problemas Desarrollados)
+## 📝 Introducción
+El vertiginoso desarrollo de ecosistemas web modernos exige soluciones que no solo resuelvan problemas de lógica de negocio, sino que garanticen la escalabilidad del código y la seguridad de la información. Este proyecto académico presenta una plataforma web centralizada orientada al procesamiento seguro de módulos lógico-matemáticos y de gestión demográfica y financiera. 
 
-La plataforma resuelve y documenta de forma segura los siguientes enunciados:
-
-* **Problema 1: Estadísticas Descriptivas**: Captura un lote de 5 números reales positivos para computar el valor mínimo, máximo, promedio aritmético y la desviación estándar muestral ($N-1$).
-* **Problema 2: Acumulador por Rangos**: Estructura iterativa `while` que procesa la suma consecutiva de un intervalo cerrado [$Inicio$, $Fin$] provisto dinámicamente por el usuario.
-* **Problema 3: Generador de Múltiplos**: Ciclo `for` que fabrica un arreglo indexado con los primeros $N$ múltiplos de 4, evaluando la magnitud de la petición mediante un bloque condicional `switch(true)`.
-* **Problema 4: Sumatoria de Paridad Cerrada**: Algoritmo automatizado en el servidor (*Caja Negra*) que calcula de manera independiente las sumas de los números pares e impares comprendidos estrictamente en el rango del 1 al 200.
-* **Problema 5: Clasificador Demográfico**: Vector que recolecta edades y delega su procesamiento a abstracciones lógicas para categorizar de forma segura grupos humanos de 0 a 120 años.
-* **Problema 6: Distribución de Capital Hospitalario**: Módulo financiero con sanitización regional (reemplazo de `,` por `.`) que divide un presupuesto general en Ginecología (40%), Traumatología (35%) y Pediatría (25%).
-* **Problema 7: Gestor Dinámico de Notas**: Formulario multifase protegido que genera inputs en tiempo real y computa promedios académicos bajo estrictas validaciones de escala (0-100).
-* **Problema 8: Analizador Cronológico**: Filtro que valida la existencia y coherencia de una fecha del calendario para determinar su estación astronómica correspondiente.
-* **Problema 9: Tabla de Potencias**: Ciclo iterativo que calcula las primeras 15 potencias de una base entera restringida mediante una lista blanca estricta del 1 al 9. Implementa la lógica **NVL (Null Value Logic)** para neutralizar advertencias de variables no inicializadas.
+El sistema ha sido diseñado adoptando la arquitectura arquitectónica **Modelo-Vista-Controlador (MVC)**, el estándar de diseño **DRY (Don't Repeat Yourself)** y las directrices globales de mitigación de vulnerabilidades de **OWASP**. El principal objetivo es demostrar la viabilidad de acoplar una interfaz dinámica (utilizando JavaScript del lado del cliente) con un motor de backend robusto en **PHP 8+** capaz de validar, sanitizar y computar datos de manera infalible.
 
 ---
 
-##  Requisitos e Instalación
+## 🛠️ Tecnologías Utilizadas
 
-### Requisitos del Sistema
-* Servidor Local: **WampServer**, **XAMPP** o **Laragon**.
-* Motor de PHP: Versión **8.0 o superior** (requerido para soporte de namespaces avanzados y funciones estrateficadas).
-* Navegador Web moderno con soporte de cookies de sesión habilitado.
+* **Backend:** PHP 8+ (Programación Orientada a Objetos, Control de Espacios de Nombres y Autocarga).
+* **Frontend:** HTML5 semántico, CSS3 para el diseño de interfaces responsivas y JavaScript (ES6) para la manipulación dinámica del DOM y validaciones perimetrales en los navegadores de los usuarios.
+* **Estándares del Entorno:** **PSR-4** para la carga automática de clases en el servidor y arquitecturas limpias de enrutamiento web.
 
-### Pasos para la Ejecución Local
-1. Clone este repositorio dentro de la carpeta raíz de su servidor local (`www/` o `htdocs/`):
-   ```bash
-   git clone [https://github.com/tu-usuario/nombre-del-repositorio.git](https://github.com/tu-usuario/nombre-del-repositorio.git)
+---
 
-## 🌲 Estructura de Archivos del Proyecto
+## 🏛️ Fundamentos de Programación (POO y Métodos Estáticos)
+
+El núcleo de la aplicación se fundamenta firmemente en la **Programación Orientada a Objetos (POO)**. Para optimizar el rendimiento y la gestión de recursos del servidor, se ha evitado la instanciación innecesaria de objetos a través del operador `new`. En su lugar, el sistema explota el uso de **Métodos Estáticos** mediante el operador de resolución de ámbito (`::`).
+
+Las ventajas técnicas implementadas son:
+1. **Cohesión:** Clases como `Utilidades` y `Security` actúan como cajas de herramientas globales organizadas bajo su propio espacio de nombres (`namespace Src\Utils`).
+2. **Eficiencia en Memoria:** Los métodos estáticos permiten invocar lógica algorítmica y defensiva de forma directa (Ej: `Security::hashPassword()`), eliminando la sobrecarga que produce la creación y destrucción constante de objetos en el ciclo de vida de la petición HTTP.
+
+---
+
+##  Documentación de Funciones Matemáticas
+
+Para resolver los problemas lógico-matemáticos de la plataforma (tales como estadísticas descriptivas, distribución presupuestaria y cálculo de potencias), se implementó una capa de abstracción en el backend que aprovecha funciones nativas de PHP y formulaciones estructuradas:
+
+* **`sqrt($num)` (Raíz Cuadrada):** Utilizada de forma crítica en el módulo de Estadísticas Descriptivas para calcular la **desviación estándar muestral**. Tras calcular la varianza dividiendo la suma de cuadrados entre $N-1$, se aplica `sqrt` para obtener la dispersión en las unidades originales.
+* **`pow($base, $exp)` / Operador `**` (Potenciación):** Implementado en el generador de la Tabla de Potencias y en el cálculo de varianzas para elevar las diferencias respecto a la media aritmética al cuadrado. Asegura una precisión flotante óptima.
+* **`number_format($monto, 2, '.', ',')`:** Utilizada en los módulos financieros (como la distribución del capital hospitalario) para formatear variables numéricas brutas en cadenas legibles con delimitadores decimales y de miles bajo estándares contables.
+
+---
+
+##  Funciones de Validación y Sanitización (Estándar OWASP)
+
+Para proteger el sistema contra la manipulación maliciosa de datos y asegurar el cumplimiento de las normativas de seguridad web, se desarrollaron componentes dedicados exclusivamente a la defensa perimetral:
+
+### 1. Funciones de Sanitización (Prevención de XSS - OWASP Top 10)
+* **`htmlspecialchars($string, ENT_QUOTES, 'UTF-8')`:** Integrada de forma transversal en los métodos de salida. Convierte caracteres especiales en entidades HTML, neutralizando cualquier intento de inyección de scripts maliciosos (**Cross-Site Scripting**) si un atacante intenta ingresar código javascript en los formularios.
+
+### 2. Funciones de Validación (Defensa contra Inyecciones de Parámetros)
+* **`filter_var($dato, FILTER_VALIDATE_INT)` / `FILTER_VALIDATE_FLOAT`:** Rechaza de inmediato cualquier entrada que no corresponda al tipo de dato estrictamente esperado por la lógica del negocio.
+* **Validación por Listas Blancas y Rangos:** Métodos encapsulados en el servidor que evalúan que los números provistos cumplan límites de frontera (ej. notas estrictamente entre `0` y `100`, o bases numéricas restringidas del `1` al `9`). Si los parámetros son alterados desde el inspector web, el servidor detecta la anomalía y detiene el proceso.
+
+### 3. Mitigación de Falsificación de Peticiones en Sitios Cruzados (CSRF)
+* **`hash_equals($_SESSION['csrf_token'], $tokenPost)`:** Compara en tiempo constante hashes criptográficos generados aleatoriamente en el backend contra los inputs ocultos de los formularios, garantizando la legitimidad de las peticiones `POST`.
+
+---
+
+##  Estructura de Archivos del Proyecto
+
+La arquitectura se encuentra distribuida fielmente conforme al árbol de directorios del entorno de desarrollo:
 
 ```text
 ├── core/
@@ -81,4 +88,3 @@ La plataforma resuelve y documenta de forma segura los siguientes enunciados:
 ├── estilos.css               # Diseño y estilos visuales globales del ecosistema
 ├── index.php                 # Enrutador principal y Front Controller del sistema
 └── Problemas.php             # Script de control en la raíz del proyecto
-  
