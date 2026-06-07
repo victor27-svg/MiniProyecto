@@ -5,10 +5,6 @@ class Utilidades{
     /**
      * Comprueba si un valor está incluido en una lista permitida.
      * Uso: validar que una opción del usuario pertenezca a valores esperados.
-     *
-     * @param mixed $valor Valor a verificar
-     * @param array $lista_permitida Arreglo con los valores permitidos
-     * @return bool True si está presente (comparación estricta), false en caso contrario
      */
     public static function validarEnLista($valor, $lista_permitida){
         return in_array($valor, $lista_permitida, true);
