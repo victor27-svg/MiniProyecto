@@ -8,7 +8,8 @@
 
 * **Curso:** [Desarrollo de Software VII]
 * **Fecha de Realización:** Junio de 2026
-* **Estudiantes:** * Victor Rivas
+* **Estudiantes:**
+  * Victor Rivas
   * Maryennis Deans
   * Eric De León
 
