@@ -69,7 +69,8 @@ La plataforma resuelve y documenta de forma segura los siguientes enunciados:
 │   ├── Controllers/
 │   │   └── Problemas.php     # Controlador principal (Módulos 1 al 9)
 │   └── Utils/
-│       └── Utilidades.php    # Clase Utilitaria Estática (OWASP, NVL, Cálculos)
+│       ├── Utilidades.php    # Clase Utilitaria Estática (OWASP, NVL, Cálculos)
+│       └── Segurity.php      # Clase Seguridad.
 ├── views/
 │   ├── layout/
 │   │   ├── header.php        # Encabezado común del sistema
