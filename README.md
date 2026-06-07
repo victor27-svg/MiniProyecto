@@ -60,28 +60,25 @@ La plataforma resuelve y documenta de forma segura los siguientes enunciados:
    ```bash
    git clone [https://github.com/tu-usuario/nombre-del-repositorio.git](https://github.com/tu-usuario/nombre-del-repositorio.git)
 
-
-## Estructura de Archivos del Proyecto
+## 🌲 Estructura de Archivos del Proyecto
 
 ```text
-├── index.php                 # Enrutador principal y Front Controller
+├── core/
+│   └── Autoloader.php        # Mecanismo de carga automática de clases (PSR-4)
 ├── src/
 │   ├── Controllers/
-│   │   └── Problemas.php     # Controlador principal (Módulos 1 al 9)
+│   │   ├── problema5.js      # Validaciones y dinámicas del lado del cliente
+│   │   ├── problema7.js      # Control de inputs dinámicos para el gestor de notas
+│   │   └── Problemas.php     # Controlador principal (Lógica y seguridad de módulos)
 │   └── Utils/
-│       ├── Utilidades.php    # Clase Utilitaria Estática (OWASP, NVL, Cálculos)
-│       └── Segurity.php      # Clase Seguridad.
+│       ├── Security.php      # Filtros perimetrales y funciones criptográficas OWASP
+│       └── Utilidades.php    # Clase utilitaria estática (formatos, NVL, matemáticas)
 ├── views/
-│   ├── layout/
-│   │   ├── header.php        # Encabezado común del sistema
-│   │   └── footer.php        # Pie de página externo común
-│   └── problemas/
-│       ├── problema1.php     # Interfaces de usuario limpias (Vistas)
-│       ├── problema2.php
-│       └── [...]             # Vistas consecutivas hasta problema9.php
-└── README.md                 # Documentación técnica oficial del proyecto
-│       ├── problema1.php     # Interfaces de usuario limpias (Vistas)
-│       ├── problema2.php
-│       └── [...]             # Vistas consecutivas hasta problema9.php
-└── README.md                 # Documentación técnica oficial del proyecto `
+│   ├── layouts/              # Componentes visuales globales compartidos
+│   │   └── footer.php        # Pie de página común de la plataforma
+│   ├── problemas/            # Directorio de interfaces individuales (Vistas 1 al 9)
+│   └── inicio.php            # Vista de la página de inicio / Menú principal
+├── estilos.css               # Diseño y estilos visuales globales del ecosistema
+├── index.php                 # Enrutador principal y Front Controller del sistema
+└── Problemas.php             # Script de control en la raíz del proyecto
   
